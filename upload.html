@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload - My Social</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Upload</h2>
+    <nav>
+      <a href="feed.html">Feed</a>
+      <a href="chat.html">Chat</a>
+      <a href="upload.html">Upload</a>
+      <a href="profile.html">Profile</a>
+      <button onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <main class="card">
+    <h2>Upload Media</h2>
+    <input type="file" id="fileInput">
+    <input type="text" id="caption" placeholder="Write a caption...">
+    <button onclick="uploadFile()">Upload</button>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js"></script>
+  <script src="app.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - My Social</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Profile</h2>
+    <nav>
+      <a href="feed.html">Feed</a>
+      <a href="chat.html">Chat</a>
+      <a href="upload.html">Upload</a>
+      <a href="profile.html">Profile</a>
+      <button onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2 id="username"></h2>
+      <p id="useremail"></p>
+    </div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+  <script src="app.js"></script>
+  <script>
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        db.ref("users/" + user.uid).once("value").then(snap => {
+          document.getElementById("username").textContent = snap.val().name;
+          document.getElementById("useremail").textContent = user.email;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
